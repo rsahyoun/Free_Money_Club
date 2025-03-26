@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f8ff;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #4CAF50;
+    color: white;
+    width: 100%;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.founders-section {
+    width: 100%;
+    background-color: #e8f5e9;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.founders-section h2 {
+    margin-bottom: 1.5rem;
+    color: #2e7d32;
+}
+
+.founders-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.founder {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    width: 200px;
+    transition: transform 0.2s;
+}
+
+.founder:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.founder .primary-img,
+.founder .hover-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4CAF50;
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.founder .hover-img {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.founder:hover .primary-img {
+    opacity: 0;
+}
+
+.founder:hover .hover-img {
+    opacity: 1;
+}
+
+/* Target a specific founder's image - for example, the first one */
+.founder:nth-child(1) img {
+    object-position: center top; /* Show more of the top part (face) */
+}
+
+/* You can target other founders if needed */
+.founder:nth-child(2) img {
+    object-position: center 50%; /* Adjust vertical position */
+}
+
+.founder:nth-child(3) img {
+    object-position: center 50%; /* Adjust vertical position */
+}
+
+.founder:nth-child(4) img {
+    object-position: center 50%;
+}
+
+.founder p {
+    margin: 3px 0;
+    font-weight: bold;
+}
+
+.founder-title {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: normal !important;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+}
+
+.game-container {
+    background-color: white;
+    background-image: url('images/Free_Money_Stuff/free_money_club_enhanced.jpg'); /* Add your image path here */
+    background-size: cover; /* Makes the image cover the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative; /* For potential overlay effects */
+}
+
+/* Optional: Add a semi-transparent overlay to ensure text remains readable */
+.game-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+    border-radius: 10px;
+    z-index: 0;
+}
+
+/* Make sure content appears above the overlay */
+.game-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+.score-display {
+    margin-bottom: 1.5rem;
+}
+
+.clicker-area {
+    margin: 2rem 0;
+}
+
+#money-clicker {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#money-clicker:hover {
+    transform: scale(1.05);
+}
+
+#money-clicker:active {
+    transform: scale(0.95);
+}
+
+.stats {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    width: 100%;
+}
+
+@keyframes moneyPop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.money-animation {
+    animation: moneyPop 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .founders-container {
+        gap: 10px;
+    }
+    
+    .founder {
+        width: 160px;
+        padding: 10px;
+    }
+    
+    .founder img {
+        width: 80px;
+        height: 80px;
+    }
+}
